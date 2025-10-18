@@ -25,6 +25,26 @@ public class aufgabe3 {
 
     }
 
+    public int[] differenz(int[] zahl1, int[] zahl2) {
+        int[] ergebnis = new int[zahl1.length];
+        int borgen = 0;
+
+        for (int i = zahl1.length - 1; i >= 0; i--) {
+            int spaltenDifferenz = zahl1[i] - zahl2[i] - borgen;
+
+            if (spaltenDifferenz < 0) {
+                // Wir müssen uns 10 von der nächsten Stelle "borgen"
+                spaltenDifferenz += 10;
+                borgen = 1;
+            } else {
+                borgen = 0;
+            }
+
+            ergebnis[i] = spaltenDifferenz;
+        }
+        return ergebnis;
+    }
+
     public static void main(String[] args) {
         aufgabe3 aufgabe = new aufgabe3();
 
@@ -34,6 +54,11 @@ public class aufgabe3 {
         int[] summe = aufgabe.summe(s1, s2);
         System.out.println("Die Summe ist: " + Arrays.toString(summe));
 
-        //
+        //2. Differenz
+        int[] d1= {8, 3, 0, 0, 0, 0, 0, 0, 0};
+        int[] d2= {5, 4, 0, 0, 0, 0, 0, 0, 0};
+        int[] differenz = aufgabe.differenz(d1, d2);
+        System.out.println("Die Differenz ist: " + Arrays.toString(differenz));
+
     }
 }

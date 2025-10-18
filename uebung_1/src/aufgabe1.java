@@ -28,17 +28,17 @@ public static class Notenverarbeitung {
         return (double) summe / noten.length;
     }
 
-    // punkt 3, Ein Array mit den abgerundeten Noten zurückgeben
+    // punkt 3, Ein Array mit den abgerundeten Noten zuruckgeben
 
     public int[] rundeNotenAb(int[] noten) {
         int[] abgerundeteNoten = new int[noten.length];
         for (int i = 0; i < noten.length; i++) {
-            abgerundeteNoten[i] = (int) Math.floor(noten[i]);
+            abgerundeteNoten[i] = rundeEinzelneNote(noten[i]);
         }
         return abgerundeteNoten;
     }
 
-    private int rundeNotenAb(int note) {
+    private int rundeEinzelneNote(int note) {
         // Wenn die Note weniger als 38 ist, wird nicht aufgerundet.
         if (note < 38) {
             return note;
@@ -53,6 +53,20 @@ public static class Notenverarbeitung {
             return note;
         }
     }
+
+    //punkt 4, maximale abgerundete Note zuruckgeben
+
+    public int findeMaximaleAbgerundeteNote(int[] noten) {
+        int[] abgerundeteNoten = rundeNotenAb(noten);
+        int maxNote = Integer.MIN_VALUE;
+        for (int note : abgerundeteNoten) {
+            if (note > maxNote) {
+                maxNote = note;
+            }
+        }
+        return maxNote;
+    }
+
 
 
 }
@@ -75,4 +89,7 @@ public static void main(String[] args) {
     int[] abgerundeteNoten = notenverarbeitung.rundeNotenAb(noten);
     System.out.println("Abgerundete Noten: " + Arrays.toString(abgerundeteNoten));
 
+    // Teste findeMaximaleAbgerundeteNote
+    int maximaleAbgerundeteNote = notenverarbeitung.findeMaximaleAbgerundeteNote(noten);
+    System.out.println("Maximale abgerundete Note: " + maximaleAbgerundeteNote);
 }

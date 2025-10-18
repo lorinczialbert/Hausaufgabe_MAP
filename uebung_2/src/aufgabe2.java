@@ -24,6 +24,22 @@ public class aufgabe2 {
         return minZahl;
     }
 
+    //punkt 3, die maximale Summe von n-1 Zahlen im Array finden
+
+    public int findeMaximaleSummeVonNMinus1Zahlen(int[] zahlen) {
+        int gesamtSumme = 0;
+        int minZahl = Integer.MAX_VALUE;
+
+        for (int zahl : zahlen) {
+            gesamtSumme += zahl;
+            if (zahl < minZahl) {
+                minZahl = zahl;
+            }
+        }
+
+        return gesamtSumme - minZahl;
+    }
+
 
 
 
@@ -41,6 +57,10 @@ public void main() {
     // Testen der Methode findeMinimaleZahl
     int minZahl = aufgabe.findeMinimaleZahl(zahlen);
     System.out.println("Die minimale Zahl im Array ist: " + minZahl);
+
+    // Testen der Methode findeMaximaleSummeVonNMinus1Zahlen
+    int maxSumme = aufgabe.findeMaximaleSummeVonNMinus1Zahlen(zahlen);
+    System.out.println("Die maximale Summe von n-1 Zahlen im Array ist: " + maxSumme);
 
 
 

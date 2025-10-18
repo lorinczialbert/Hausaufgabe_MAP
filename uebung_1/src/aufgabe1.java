@@ -14,9 +14,22 @@ public class Notenverarbeitung {
         // Konvertiere ArrayList zurück zu int[]
         return nichtAusreichendeNoten.stream().mapToInt(i -> i).toArray();
     }
-}
 
-    // punkt 2, Berechnet den Durchschnittwert der Noten
+    // punkt 2, Berechnet den Durchschnittswert aller Noten
+
+    public double berechneDurchschnitt(int[] noten) {
+        if (noten.length == 0) {
+            return 0.0;
+        }
+        int summe = 0;
+        for (int note : noten) {
+            summe += note;
+        }
+        return (double) summe / noten.length;
+    }
+
+    // punkt 3, Ein Array mit den abgerundeten Noten zurückgeben
+}
 
 
 

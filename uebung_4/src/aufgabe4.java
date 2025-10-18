@@ -39,6 +39,23 @@ public class aufgabe4 {
         return Math.max(maxTastatur, maxUsb);
     }
 
+    //3.teuerste usb laufwerk finden
+    public int findeTeuerstesUsbImBudget(int[] usbPreise, int budget) {
+        int besterKauf = -1;
+
+        for (int preis : usbPreise) {
+            if (preis <= budget && preis > besterKauf) {
+                besterKauf = preis;
+            }
+        }
+        return besterKauf;
+    }
+
+        //4.Finde Maximale Ausgabe innerhalb des Budgets
+
+    //public int findeMaximaleAusgabe(int[] tastaturPreise, int[] usbPreise, int budget) {
+      //  int maximaleAusgabe = -1;
+
 
 
 
@@ -56,7 +73,16 @@ public class aufgabe4 {
         int[] usbPreise2 = {20, 15, 40, 15};
         System.out.println("2. Teuerster Gegenstand: " + aufgabe.findeTeuerstenGegenstand(tastaturPreise2, usbPreise2));
 
-        //3.
+        //3.teuerste usb laufwerk finden
+        int[] usbPreise3 = {15, 45, 20};
+        int budget3 = 30;
+        System.out.println("3. Teuerstes USB-Laufwerk im Budget: " + aufgabe.findeTeuerstesUsbImBudget(usbPreise3, budget3));
+
+        //4.Finde Maximale Ausgabe innerhalb des Budgets
+        //int[] tastaturPreise4 = {40, 50, 60};
+        //int[] usbPreise4 = {5, 8, 12};
+        //int budget4 = 58;
+        //System.out.println("4. Maximale Ausgabe innerhalb des Budgets: " + aufgabe.findeMaximaleAusgabe(tastaturPreise4, usbPreise4, budget4));
 
 
     }

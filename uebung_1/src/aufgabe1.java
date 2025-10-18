@@ -38,6 +38,22 @@ public static class Notenverarbeitung {
         return abgerundeteNoten;
     }
 
+    private int rundeNotenAb(int note) {
+        // Wenn die Note weniger als 38 ist, wird nicht aufgerundet.
+        if (note < 38) {
+            return note;
+        }
+
+        int naechstesVielfachesVon5 = ((note / 5) + 1) * 5;
+
+        // Wenn die Differenz weniger als 3 ist, aufrunden.
+        if (naechstesVielfachesVon5 - note < 3) {
+            return naechstesVielfachesVon5;
+        } else {
+            return note;
+        }
+    }
+
 
 }
 

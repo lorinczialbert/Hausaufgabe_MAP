@@ -17,3 +17,13 @@ public class aufgabe2 {
 
 
 }
+
+public void main() {
+    aufgabe2 aufgabe = new aufgabe2();
+    int[] zahlen = {3, 5, 7, 2, 8, 1};
+
+    // Testen der Methode findeMaximaleZahl
+    int maxZahl = aufgabe.findeMaximaleZahl(zahlen);
+    System.out.println("Die maximale Zahl im Array ist: " + maxZahl);
+
+}

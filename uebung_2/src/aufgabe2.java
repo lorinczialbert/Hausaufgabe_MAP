@@ -12,6 +12,18 @@ public class aufgabe2 {
         return maxZahl;
     }
 
+    //punkt 2, minimale Zahl im Array finden
+
+    public int findeMinimaleZahl(int[] zahlen) {
+        int minZahl = Integer.MAX_VALUE;
+        for (int zahl : zahlen) {
+            if (zahl < minZahl) {
+                minZahl = zahl;
+            }
+        }
+        return minZahl;
+    }
+
 
 
 
@@ -25,5 +37,11 @@ public void main() {
     // Testen der Methode findeMaximaleZahl
     int maxZahl = aufgabe.findeMaximaleZahl(zahlen);
     System.out.println("Die maximale Zahl im Array ist: " + maxZahl);
+
+    // Testen der Methode findeMinimaleZahl
+    int minZahl = aufgabe.findeMinimaleZahl(zahlen);
+    System.out.println("Die minimale Zahl im Array ist: " + minZahl);
+
+
 
 }

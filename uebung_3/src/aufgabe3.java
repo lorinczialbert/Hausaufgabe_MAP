@@ -100,7 +100,11 @@ public class aufgabe3 {
         int[] multiplikation = aufgabe.multiplikation(m1, ziffer);
         System.out.println("Die Multiplikation ist: " + Arrays.toString(multiplikation));
 
-
+        //4. Division
+        int[] v1= {2, 3, 6, 0, 0, 0, 0, 0, 0};
+        int divisor = 2;
+        int[] division = aufgabe.division(v1, divisor);
+        System.out.println("Die Division ist: " + Arrays.toString(division));
 
     }
 }

@@ -45,6 +45,40 @@ public class aufgabe3 {
         return ergebnis;
     }
 
+    public int[] multiplikation(int[] grosseZahl, int ziffer) {
+        ArrayList<Integer> ergebnisListe = new ArrayList<>();
+        int uebertrag = 0;
+
+        for (int i = grosseZahl.length - 1; i >= 0; i--) {
+            int produkt = grosseZahl[i] * ziffer + uebertrag;
+            ergebnisListe.add(0, produkt % 10);
+            uebertrag = produkt / 10;
+        }
+
+        if (uebertrag > 0) {
+            ergebnisListe.add(0, uebertrag);
+        }
+        return ergebnisListe.stream().mapToInt(i -> i).toArray();
+    }
+
+    public int[] division(int[] grosseZahl, int divisor) {
+        int[] ergebnis = new int[grosseZahl.length];
+        int rest = 0;
+
+        // Bei der Division gehen wir von links nach rechts!
+        for (int i = 0; i < grosseZahl.length; i++) {
+            // Die aktuelle Zahl zum Teilen ist der Rest * 10 + die aktuelle Ziffer
+            int aktuelleZahl = rest * 10 + grosseZahl[i];
+
+            ergebnis[i] = aktuelleZahl / divisor;
+            rest = aktuelleZahl % divisor;
+        }
+        return ergebnis;
+    }
+
+
+
+
     public static void main(String[] args) {
         aufgabe3 aufgabe = new aufgabe3();
 
@@ -59,6 +93,14 @@ public class aufgabe3 {
         int[] d2= {5, 4, 0, 0, 0, 0, 0, 0, 0};
         int[] differenz = aufgabe.differenz(d1, d2);
         System.out.println("Die Differenz ist: " + Arrays.toString(differenz));
+
+        //3. Multiplikation
+        int[] m1= {2, 3, 6, 0, 0, 0, 0, 0, 0};
+        int ziffer = 2;
+        int[] multiplikation = aufgabe.multiplikation(m1, ziffer);
+        System.out.println("Die Multiplikation ist: " + Arrays.toString(multiplikation));
+
+
 
     }
 }

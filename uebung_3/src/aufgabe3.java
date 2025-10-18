@@ -16,5 +16,10 @@ public class aufgabe3 {
             // Der Rest ist der ubertrag fur die nachste Stelle
             uebertrag = spaltenSumme / 10;
         }
+        // Wenn nach der letzten Stelle noch ein Ubertrag ubrig ist, hinzufugen
+        if (uebertrag > 0) {
+            ergebnisListe.add(0, uebertrag);
     }
+        return ergebnisListe.stream().mapToInt(i -> i).toArray();
 }
+
